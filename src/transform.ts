@@ -55,3 +55,25 @@ export function transform(t: Triad, operations: string): Triad {
 export function hexatonicPole(t: Triad): Triad {
   return transform(t, "LPL");
 }
+
+/**
+ * Nebenverwandt (N): exchange a major triad for its subdominant minor (C major to F
+ * minor) and a minor triad for its dominant major (C minor to G major). Equal to applying
+ * R, then L, then P; it preserves one common tone.
+ */
+export function n(t: Triad): Triad {
+  return t.quality === "major"
+    ? { root: mod(t.root + 5), quality: "minor" }
+    : { root: mod(t.root + 7), quality: "major" };
+}
+
+/**
+ * Slide (S): exchange two triads that share their third, shifting the root by a semitone
+ * and flipping quality (C major to C# minor, C minor to B major). Equal to applying L,
+ * then P, then R; it preserves one common tone (the shared third).
+ */
+export function s(t: Triad): Triad {
+  return t.quality === "major"
+    ? { root: mod(t.root + 1), quality: "minor" }
+    : { root: mod(t.root - 1), quality: "major" };
+}
