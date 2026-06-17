@@ -1,11 +1,7 @@
 # Logo prompt
 
-The logo in `assets/logo.png` was generated with OpenAI `gpt-image-1` (1024x1024,
-medium quality) from this prompt:
+Model: gpt-image-2. Format: 1024x1024, squircle (superellipse) corner mask.
 
-> Minimal geometric logo based on the Tonnetz, a triangular lattice from music theory. A
-> small tidy triangular grid of dots connected into equilateral triangles, with a single
-> upward triangle subtly filled to highlight one triad. Flat vector, premium research-lab
-> aesthetic. White background, black lines, one pale blue accent fill on the highlighted
-> triangle. Centered, balanced, generous negative space, no text, no letters, no robots,
-> no neon, crisp and geometric.
+Flat vector app icon, full-bleed square composition, research-lab aesthetic: clean white and very pale blue background with a faint thin geometric grid, crisp black technical line work with a single medium-blue accent. Precise schematic scientific-figure look, centered, generous margins, balanced detail. Absolutely no text, no letters, no numerals, no robots, no neon, no glow, no 3D gloss, no photorealism. Keep the artwork to square edges with a flat background extending to all four corners (the corners will be masked into a squircle later).
+
+Subject: neo-Riemannian Tonnetz lattice. A regular triangular lattice of small circular nodes connected by thin edges into a tessellation of equilateral triangles (major and minor triads). Three adjacent edges are emphasized in the blue accent with small directional arrowheads suggesting the P, L and R transformations, and six triangles form a closed ring suggesting a hexatonic cycle. Crystalline, symmetric, balanced.
