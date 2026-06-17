@@ -1,5 +1,9 @@
 # tonnetz
 
+<p align="center">
+  <img src="assets/logo.png" alt="tonnetz logo" width="160">
+</p>
+
 [![CI](https://github.com/amaar-mc/tonnetz/actions/workflows/ci.yml/badge.svg)](https://github.com/amaar-mc/tonnetz/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
