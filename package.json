@@ -1,0 +1,64 @@
+{
+  "name": "tonnetz",
+  "version": "0.1.0",
+  "description": "Neo-Riemannian music theory: PLR transformations, hexatonic and octatonic cycles, the Tonnetz lattice, and shortest transformation paths between triads. Typed, zero dependencies.",
+  "keywords": [
+    "music",
+    "music-theory",
+    "neo-riemannian",
+    "tonnetz",
+    "plr",
+    "triad",
+    "transformational-theory",
+    "computational-music",
+    "harmony",
+    "voice-leading"
+  ],
+  "license": "MIT",
+  "author": "Amaar Chughtai",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "example": "tsx examples/analyze.ts",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.0",
+    "@types/node": "^25.9.3",
+    "fast-check": "^4.8.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amaar-mc/tonnetz.git"
+  },
+  "homepage": "https://github.com/amaar-mc/tonnetz#readme",
+  "bugs": {
+    "url": "https://github.com/amaar-mc/tonnetz/issues"
+  }
+}
