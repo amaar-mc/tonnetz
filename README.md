@@ -32,6 +32,23 @@ triadName(transform(c, "LPR"));      // "C# minor"  (apply L, then P, then R)
 pathBetween(c, triad(5, "minor"));   // "PLR"  shortest route to F minor
 ```
 
+### Chord symbol parsing (v0.3.0)
+
+```ts
+import { parseChord, chordCandidates } from "tonnetz";
+
+parseChord("C");       // { root: 0, quality: "major",    pitchClasses: [0, 4, 7] }
+parseChord("Cm7");     // { root: 0, quality: "minor7",   pitchClasses: [0, 3, 7, 10] }
+parseChord("F#maj7");  // { root: 6, quality: "major7",   pitchClasses: [1, 6, 10, 11] }
+parseChord("Bbdim7");  // { root: 10, quality: "diminished7", pitchClasses: [0, 3, 6, 10] }
+parseChord("Csus4");   // { root: 0, quality: "sus4",     pitchClasses: [0, 5, 7] }
+parseChord("xyz");     // null
+
+// Identify all chords that contain the pitch classes 0, 4, 7 (C major triad).
+chordCandidates([0, 4, 7]);
+// [{ root: 0, quality: "major", symbol: "C" }, ...]
+```
+
 Triads are `{ root, quality }` with root a pitch class (0..11, C = 0). All functions are pure.
 
 ## Why this exists
@@ -52,6 +69,7 @@ analysis.
 | Hexatonic / octatonic cycles|   yes   |  no   | partial |
 | Shortest PLR path           |   yes   |  no   |   no    |
 | Tonnetz lattice coordinates |   yes   |  no   |   no    |
+| Common chord symbol parsing |   yes   |  yes  |   yes   |
 | Zero runtime dependencies   |   yes   |  yes  |   no    |
 | Runs in the browser         |   yes   |  yes  |   no    |
 | Language                    |   TS    | JS/TS | Python  |
@@ -85,6 +103,33 @@ analysis.
 - `commonTones(a, b)` counts shared pitch classes.
 - `pitchAtLattice(fifths, majorThirds)` maps a Tonnetz lattice coordinate to a pitch class.
 
+### Chord symbol parsing
+
+- `parseChord(symbol)` parses a standard chord symbol string (e.g. `"Cm7"`, `"F#maj7"`, `"Bbdim7"`,
+  `"Csus4"`, `"CmM7"`) into `{ root, quality, pitchClasses }`. Root is a pitch class (C = 0,
+  C# = 1, ..., B = 11). Accepts all 12 roots with sharps and flats. Returns `null` for
+  unrecognized input.
+- `chordCandidates(pcs)` is the inverse: given a pitch-class array, returns all recognized chord
+  symbols whose pitch-class content exactly matches, sorted deterministically by root then quality.
+- `ChordQuality` is the type for the quality field, a union of string literals.
+
+Supported quality labels and the spellings accepted for each:
+
+| Quality label      | Accepted suffixes                        | Example    |
+|--------------------|------------------------------------------|------------|
+| `major`            | (none), `maj`, `M`                       | `C`, `Cmaj`|
+| `minor`            | `m`, `min`, `-`                          | `Cm`, `Cmin`|
+| `diminished`       | `dim`, `o`                               | `Cdim`, `Co`|
+| `augmented`        | `aug`, `+`                               | `Caug`, `C+`|
+| `dominant7`        | `7`                                      | `C7`       |
+| `major7`           | `maj7`, `M7`                             | `Cmaj7`    |
+| `minor7`           | `m7`, `min7`, `-7`                       | `Cm7`      |
+| `halfDiminished7`  | `m7b5`, `ø7`, `ø`                        | `Cm7b5`    |
+| `diminished7`      | `dim7`, `o7`                             | `Cdim7`    |
+| `sus2`             | `sus2`                                   | `Csus2`    |
+| `sus4`             | `sus4`                                   | `Csus4`    |
+| `minorMajor7`      | `mM7`, `m(maj7)`, `min(maj7)`            | `CmM7`     |
+
 ## The transformations
 
 - P (Parallel) swaps quality on the same root: C major to C minor.
@@ -97,8 +142,7 @@ a path always exists between any two triads. These properties are tested.
 
 ## Roadmap
 
-- Seventh-chord transformations.
-- Triad and chord name parsing.
+- Seventh-chord transformations (Childs/Gollin neo-Riemannian operations on seventh chords).
 - Tonnetz triangle coordinates for rendering.
 
 ## Examples

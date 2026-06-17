@@ -1,3 +1,5 @@
+export type { ChordQuality } from "./chordSymbol";
+export { chordCandidates, parseChord } from "./chordSymbol";
 export { hexatonicCycle, octatonicCycle } from "./cycles";
 export { pitchAtLattice } from "./lattice";
 export { pathBetween } from "./path";
