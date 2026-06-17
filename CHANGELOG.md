@@ -22,7 +22,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `ChordQuality` type exported for callers who want to branch on the quality label.
 
 ### Note
-- npm publish of 0.3.0 is pending the maintainer OTP.
+- Published to npm 2026-06-17 (v0.3.0).
 
 ## [0.2.0]
 
