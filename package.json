@@ -1,6 +1,6 @@
 {
   "name": "tonnetz",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Neo-Riemannian music theory: PLR transformations, hexatonic and octatonic cycles, the Tonnetz lattice, and shortest transformation paths between triads. Typed, zero dependencies.",
   "keywords": [
     "music",

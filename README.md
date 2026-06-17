@@ -70,6 +70,7 @@ analysis.
 ### Transformations
 
 - `p(t)`, `l(t)`, `r(t)` are the Parallel, Leittonwechsel, and Relative transformations.
+- `n(t)` (Nebenverwandt) and `s(t)` (Slide) are the named compound transformations.
 - `transform(t, "LPR")` applies a sequence of operations, left to right.
 - `hexatonicPole(t)` returns the maximally distant triad (LPL).
 
@@ -96,7 +97,6 @@ a path always exists between any two triads. These properties are tested.
 
 ## Roadmap
 
-- Named compound transformations (N, S) with documented definitions.
 - Seventh-chord transformations.
 - Triad and chord name parsing.
 - Tonnetz triangle coordinates for rendering.

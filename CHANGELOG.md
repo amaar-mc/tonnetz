@@ -7,10 +7,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 ### Planned
-- Named compound transformations (N, S).
 - Seventh-chord transformations.
 - Triad and chord name parsing.
 - Tonnetz triangle coordinates for rendering.
+
+## [0.2.0]
+
+### Added
+- `n` (Nebenverwandt) and `s` (Slide), the named compound transformations. Each is an involution that preserves one common tone, verified against its PLR composition (R, L, P for N; L, P, R for S) across all 24 triads.
 
 ## [0.1.0]
 

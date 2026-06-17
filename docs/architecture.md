@@ -21,6 +21,14 @@ The major-triad and minor-triad cases differ, which is the most common source of
 ad hoc implementations. Each transformation is an involution, and each preserves exactly
 two common tones; both facts are tested.
 
+Two named compound transformations are also provided. N (Nebenverwandt) sends a major
+triad to its subdominant minor (`{r, major} -> {r+5, minor}`) and a minor triad to its
+dominant major (`{r, minor} -> {r+7, major}`); it equals applying R, then L, then P. S
+(Slide) shifts the root by a semitone and flips quality (`{r, major} -> {r+1, minor}`,
+`{r, minor} -> {r-1, major}`), keeping the shared third; it equals applying L, then P,
+then R. Both are involutions preserving one common tone, and the tests check each against
+its composition across all 24 triads.
+
 ## The group
 
 P, L, and R generate the dihedral group of order 24, which acts simply transitively on
